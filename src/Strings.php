@@ -1,9 +1,8 @@
 <?php
 /**
- * @copyright  Copyright (c) 2020. www.qwephp.com, All rights reserved.
+ * @copyright  Copyright (c) 2020 www.qwephp.com, All rights reserved.
  * @link       https://github.com/qwenode/qwephp
  * @license    MIT
- *
  */
 
 namespace qwephp;
