@@ -9,6 +9,8 @@ an php utility library
 ## Table of Contents
 - [Installation](#installation)
 - [Tests](#tests)
+- [Strings](#strings)
+    - [trim](#trim)
 
 ## Installation
 Manual install with composer
@@ -22,5 +24,10 @@ composer require qwenode/qwephp
 $ php vendor/bin/codecept run
 ```
 
+## Strings
 
-
+### trim
+trim string like php trim()
+```php
+\qwephp\Strings::trim('a '); //output a
+```
