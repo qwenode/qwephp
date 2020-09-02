@@ -11,7 +11,7 @@ an php utility library
 - [Tests](#tests)
 - [Strings](#strings)
     - [trim](#trim)
-
+    - [stripSpace](#stripSpace)
 ## Installation
 Manual install with composer
 ```shell script
@@ -27,7 +27,13 @@ $ php vendor/bin/codecept run
 ## Strings
 
 ### trim
-trim string like php trim()
+@see trim()
 ```php
-\qwephp\Strings::trim('a '); //output a
+\qwephp\Strings::trim('a '); //a
+```
+### stripSpace
+remove all whitespace from given string
+
+```php
+\qwephp\Strings::stripSpace('a b c'); //abc
 ```
