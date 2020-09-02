@@ -11,9 +11,9 @@ class StringsTest extends \Codeception\Test\Unit
     }
 
     // tests
-    public function testTrim()
+    public function testSomeFeature()
     {
-        $this->assertEquals(\qwenode\qwephp\Strings::trim('a '),'a');
-        $this->assertEquals(\qwenode\qwephp\Strings::trim("a \n\r\t"),'a');
+        $this->assertEquals(\qwenode\qwephp\Strings::trim('a '), 'a');
+        $this->assertEquals(\qwenode\qwephp\Strings::trim("a \n\r\t"), 'a');
     }
 }
