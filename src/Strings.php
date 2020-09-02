@@ -1,4 +1,11 @@
 <?php
+/**
+ * Copyright (c) 2020.
+ *  @license    MIT
+ *  @copyright  Copyright (C) www.qwephp.com, All rights reserved.
+ *  @link       https://github.com/qwenode/qwephp
+ *  @author    qwenode <dtfreemandev@gmail.com>
+ */
 
 namespace qwephp;
 class Strings
@@ -7,4 +14,5 @@ class Strings
     {
         return trim($value, $charlist);
     }
+
 }
