@@ -8,12 +8,19 @@ an php utility library
 
 ## Table of Contents
 - [Installation](#installation)
-
+- [Tests](#tests)
 
 ## Installation
-
+Manual install with composer
 ```shell script
 composer require qwenode/qwephp
 ```
+
+## Tests
+
+```shell script
+$ php vendor/bin/codecept run
+```
+
 
 
