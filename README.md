@@ -7,7 +7,7 @@ an php utility library
 
 
 ## Table of Contents
-- Installation(#installation)
+- [Installation](#installation)
 
 
 ## Installation
