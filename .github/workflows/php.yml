@@ -30,7 +30,7 @@ jobs:
       if: steps.composer-cache.outputs.cache-hit != 'true'
       run: composer install --prefer-dist --no-progress --no-suggest
     - name: update composer
-        - run: composer update
+      run: composer update
     - name: Codeception Action
       # You may pin to the exact commit or the version.
       # uses: joelwmale/codeception-action@104032c6a73aa7f1ad17dc81a9eebf7d122d76b6
