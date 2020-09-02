@@ -1,4 +1,9 @@
-<?php 
+<?php
+
+namespace qwephp\tests;
+
+use qwephp\Strings;
+
 class StringsTest extends \Codeception\Test\Unit
 {
 
@@ -13,7 +18,7 @@ class StringsTest extends \Codeception\Test\Unit
     // tests
     public function testSomeFeature()
     {
-        $this->assertEquals(\qwenode\qwephp\Strings::trim('a '), 'a');
-        $this->assertEquals(\qwenode\qwephp\Strings::trim("a \n\r\t"), 'a');
+        $this->assertEquals(Strings::trim('a '), 'a');
+        $this->assertEquals(Strings::trim("a \n\r\t"), 'a');
     }
 }

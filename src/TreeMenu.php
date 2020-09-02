@@ -1,7 +1,7 @@
 <?php
 
 
-namespace qwenode\qwephp;
+namespace qwephp;
 
 
 class TreeMenu
