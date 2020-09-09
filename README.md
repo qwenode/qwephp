@@ -25,7 +25,7 @@ $ php vendor/bin/codecept run
 ```
 
 ## Strings
-
+ 
 ### trim
 @see trim()
 ```php
