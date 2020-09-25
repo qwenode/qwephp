@@ -6,6 +6,8 @@ an php utility library
 [![GitHub license](https://img.shields.io/github/license/qwenode/qwephp)](https://github.com/qwenode/qwephp/blob/master/LICENSE)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fqwenode%2Fqwephp.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fqwenode%2Fqwephp?ref=badge_shield)
 
+# License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fqwenode%2Fqwephp.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fqwenode%2Fqwephp?ref=badge_large)
 
 ## Table of Contents
 - [Installation](#installation)
@@ -38,6 +40,3 @@ remove all whitespace from given string
 ```php
 \qwephp\Strings::stripSpace('a b c'); //abc
 ```
-
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fqwenode%2Fqwephp.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fqwenode%2Fqwephp?ref=badge_large)
