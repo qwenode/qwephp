@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * @copyright  Copyright (c) 2020 www.qwephp.com, All rights reserved.
  * @link       https://github.com/qwenode/qwephp
  * @license    MIT
@@ -27,5 +27,10 @@ class Strings
     public static function stripSpace(string $value): string
     {
         return preg_replace('/\s+/', '', $value);
+    }
+
+    public static function replaceMultipleSpaceToSingle(string $val): string
+    {
+        return preg_replace('/\s+/', ' ', $val);
     }
 }

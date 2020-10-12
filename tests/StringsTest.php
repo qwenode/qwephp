@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * @copyright  Copyright (c) 2020 www.qwephp.com, All rights reserved.
  * @link       https://github.com/qwenode/qwephp
  * @license    MIT
@@ -27,5 +27,11 @@ class StringsTest extends \Codeception\Test\Unit
         $this->assertEquals(Strings::trim("a \n\r\t"), 'a');
         $this->assertEquals(Strings::trim(".a.,", ',.'), 'a');
         $this->assertEquals(Strings::stripSpace("a b c d "), 'abcd');
+    }
+
+    public function testReplaceMultipleSpaceToSingle()
+    {
+        $this->assertEquals(Strings::replaceMultipleSpaceToSingle('a  b'), 'a b');
+        $this->assertEquals(Strings::replaceMultipleSpaceToSingle('a    b   c'), 'a b c');
     }
 }
