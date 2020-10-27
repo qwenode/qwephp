@@ -33,4 +33,13 @@ class Strings
     {
         return preg_replace('/\s+/', ' ', $val);
     }
+
+    public static function getLastElementBySplit(string $str, string $sep): string
+    {
+        $e = mb_split($sep, $str);
+        if (count($e) <= 0) {
+            return $str;
+        }
+        return array_pop($e);
+    }
 }

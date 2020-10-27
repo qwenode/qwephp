@@ -34,4 +34,9 @@ class StringsTest extends \Codeception\Test\Unit
         $this->assertEquals(Strings::replaceMultipleSpaceToSingle('a  b'), 'a b');
         $this->assertEquals(Strings::replaceMultipleSpaceToSingle('a    b   c'), 'a b c');
     }
+
+    public function testGetLastElementBySplit()
+    {
+        $this->assertEquals(Strings::getLastElementBySplit("awefwe/bbb", "/"), "bbb");
+    }
 }
