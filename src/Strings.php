@@ -36,7 +36,7 @@ class Strings
 
     public static function getLastElementBySplit(string $str, string $sep): string
     {
-        $e = mb_split($sep, $str);
+        $e = explode($sep, $str);
         if (count($e) <= 0) {
             return $str;
         }
