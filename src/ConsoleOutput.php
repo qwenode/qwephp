@@ -47,7 +47,7 @@ class ConsoleOutput
                 $message = str_replace('{' . $k . '}', "[{$v}]", $message);
             }
         } else {
-            $explode = explode($message, '{}');
+            $explode = explode('{}', $message);
             $msg = '';
             foreach ($explode as $k => $value) {
                 $msg .= $value;
