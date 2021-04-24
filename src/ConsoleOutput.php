@@ -1,6 +1,6 @@
 <?php
 /*
- * @copyright  Copyright (c) 2020 www.qwephp.com, All rights reserved.
+ * @copyright  Copyright (c) 2021 www.qwephp.com, All rights reserved.
  * @link       https://github.com/qwenode/qwephp
  * @license    MIT
  */
@@ -41,10 +41,24 @@ class ConsoleOutput
         if (static::$daemonize) {
             return;
         }
-        foreach ($params as $k => $v) {
-            $v = is_string($v) ? $v : json_encode($v);
-            $message = str_replace('{' . $k . '}', "[{$v}]", $message);
+        if (strpos($message, '{0}') !== FALSE) {
+            foreach ($params as $k => $v) {
+                $v = is_string($v) ? $v : json_encode($v);
+                $message = str_replace('{' . $k . '}', "[{$v}]", $message);
+            }
+        } else {
+            $explode = explode($message, '{}');
+            $msg = '';
+            foreach ($explode as $k => $value) {
+                $msg .= $value;
+                if (isset($params[$k])) {
+                    $msg .= $params[$k];
+                }
+            }
+            $message = $msg;
         }
+
+
         printf("[%s][%s]: %s\n", date('Y-m-d H:i:s'), $type, $message);
     }
 }
