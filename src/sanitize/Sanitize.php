@@ -17,7 +17,7 @@ class Sanitize
      * @param string $str
      * @return string
      */
-    public static function alpha(string $str): string
+    public static function alpha($str): string
     {
         return trim(preg_replace('/[^a-z]/i', '', $str));
     }
@@ -27,7 +27,7 @@ class Sanitize
      * @param string $str
      * @return string
      */
-    public static function int(string $str): string
+    public static function int($str): string
     {
         return preg_replace('/[^0-9]/i', '', $str);
     }
@@ -37,7 +37,7 @@ class Sanitize
      * @param string $str
      * @return string
      */
-    public static function firstInt(string $str): string
+    public static function firstInt($str): string
     {
         $i = self::float($str);
         return Strings::getFirstElementBySplit($i, '.');
@@ -48,7 +48,7 @@ class Sanitize
      * @param string $str
      * @return string
      */
-    public static function float(string $str): string
+    public static function float($str): string
     {
         $r = preg_replace('/[^0-9.]/i', '', $str);
         $r = trim($r);
