@@ -1,6 +1,6 @@
 <?php
 /*
- * @copyright  Copyright (c) 2020 www.qwephp.com, All rights reserved.
+ * @copyright  Copyright (c) 2021 www.qwephp.com, All rights reserved.
  * @link       https://github.com/qwenode/qwephp
  * @license    MIT
  */
@@ -38,5 +38,6 @@ class StringsTest extends \Codeception\Test\Unit
     public function testGetLastElementBySplit()
     {
         $this->assertEquals(Strings::getLastElementBySplit("awefwe/bbb", "/"), "bbb");
+        $this->assertEquals(Strings::getFirstElementBySplit("awefwe/awefwe1/bbb/wegew", "/"), "awefwe");
     }
 }

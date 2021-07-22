@@ -1,6 +1,6 @@
 <?php
 /*
- * @copyright  Copyright (c) 2020 www.qwephp.com, All rights reserved.
+ * @copyright  Copyright (c) 2021 www.qwephp.com, All rights reserved.
  * @link       https://github.com/qwenode/qwephp
  * @license    MIT
  */
@@ -41,5 +41,14 @@ class Strings
             return $str;
         }
         return array_pop($e);
+    }
+
+    public static function getFirstElementBySplit(string $str, string $sep): string
+    {
+        $e = explode($sep, $str);
+        if (count($e) <= 0) {
+            return $str;
+        }
+        return array_shift($e);
     }
 }

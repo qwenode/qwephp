@@ -8,6 +8,8 @@
 namespace qwephp\sanitize;
 
 
+use qwephp\Strings;
+
 class Sanitize
 {
     /**
@@ -25,9 +27,20 @@ class Sanitize
      * @param string $str
      * @return string
      */
-    public static function number(string $str): string
+    public static function int(string $str): string
     {
         return preg_replace('/[^0-9]/i', '', $str);
+    }
+
+    /**
+     * 移除非数字
+     * @param string $str
+     * @return string
+     */
+    public static function firstInt(string $str): string
+    {
+        $i = self::float($str);
+        return Strings::getFirstElementBySplit($i, '.');
     }
 
     /**
