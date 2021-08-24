@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * var_dump
+ * @param ...$data
+ */
 function d(...$data)
 {
     echo '<pre>
