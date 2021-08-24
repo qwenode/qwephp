@@ -15,11 +15,11 @@
   "autoload": {
     "psr-4": {
       "qwephp\\": "src/"
-    }
+    },
+    "files": [
+      "src/functions.php"
+    ]
   },
-  "files": [
-    "src/functions.php"
-  ],
   "require-dev": {
     "codeception/codeception": "^4.1",
     "codeception/module-phpbrowser": "^1.0.0",
