@@ -4,14 +4,19 @@
  * var_dump
  * @param ...$data
  */
-function d(...$data)
+function dump(...$data)
 {
-    echo '<pre>
-====================DUMP=====================
-';
+    static $pre = false;
+    $debug_backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+    if ($pre === false) {
+        echo '<pre>';
+        $pre = true;
+    }
+    if (isset($debug_backtrace[0])) {
+        echo "\r\n" . $debug_backtrace[0]['file'] . ':' . $debug_backtrace[0]['line'] . "]\r\n";
+    }
     foreach ($data as $item) {
         var_dump($item);
     }
-    echo '
-====================END======================</pre>';
 }
+
