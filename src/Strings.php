@@ -60,6 +60,17 @@ class Strings
      */
     public static function sprintf($message, ...$params)
     {
+        return self::sprintfWithArrayParams($message, $params);
+    }
+
+    /**
+     * 调用方式: Strings::sprintfWithArrayParams('abc{}haha',[123]); 返回: abc123haha
+     * @param $message
+     * @param array $params
+     * @return string
+     */
+    public static function sprintfWithArrayParams($message, array $params)
+    {
         $explode = explode('{}', $message);
         $newMsg  = '';
         foreach ($explode as $k => $value) {
