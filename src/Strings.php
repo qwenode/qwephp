@@ -51,4 +51,28 @@ class Strings
         }
         return array_shift($e);
     }
+
+    /**
+     * 调用方式: Strings::sprintf('abc{}haha',123); 返回: abc123haha
+     * @param string $message
+     * @param ...$params
+     * @return string
+     */
+    public static function sprintf($message, ...$params)
+    {
+        $explode = explode('{}', $message);
+        $newMsg  = '';
+        foreach ($explode as $k => $value) {
+            $newMsg .= $value;
+            if (isset($params[$k])) {
+                $fillValue = $params[$k];
+                if (is_array($fillValue)) {
+                    $fillValue = json_encode($fillValue);
+                }
+                $newMsg .= $fillValue;
+            }
+        }
+        return $newMsg;
+    }
+
 }
