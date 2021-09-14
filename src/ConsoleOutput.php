@@ -52,7 +52,11 @@ class ConsoleOutput
             foreach ($explode as $k => $value) {
                 $msg .= $value;
                 if (isset($params[$k])) {
-                    $msg .= $params[$k];
+                    $param = $params[$k];
+                    if (is_array($param)) {
+                        $param = json_encode($param);
+                    }
+                    $msg .= $param;
                 }
             }
             $message = $msg;
