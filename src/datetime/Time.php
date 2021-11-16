@@ -34,7 +34,7 @@ class Time
      */
     public static function fromString(string $datetime): self
     {
-        return new static(strtotime($datetime));
+        return new static((int)strtotime($datetime));
     }
 
     /**
