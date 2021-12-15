@@ -75,7 +75,7 @@ class Sanitize
         [{}^\~`]                 # URL unsafe characters https://www.ietf.org/rfc/rfc1738.txt
         ~x',
             '-', $s);
-        $filename = ltrim($filename, '.-');
+        $filename = trim($filename, '.-');
         return $filename;
     }
 }
