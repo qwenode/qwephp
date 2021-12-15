@@ -3,6 +3,7 @@
 namespace qwephp\assert;
 
 use ErrorException;
+use qwephp\Strings;
 
 /**
  *
@@ -14,10 +15,10 @@ class AssertionThrow
      * @param string $message
      * @throws ErrorException
      */
-    public static function notNull($value, $message = '数据不能为空')
+    public static function notNull($value, $message = '数据不能为空', ...$messageParam)
     {
         if (!Assertion::notNull($value)) {
-            throw new ErrorException($message);
+            throw new ErrorException(Strings::sprintf($message, $messageParam));
         }
     }
 
@@ -27,10 +28,10 @@ class AssertionThrow
      * @param string $message
      * @throws ErrorException
      */
-    public static function minLength(string $value, int $min, string $message = '数据长度太短')
+    public static function minLength(string $value, int $min, string $message = '数据长度太短', ...$messageParam)
     {
         if (!Assertion::minLength($value, $min)) {
-            throw new ErrorException($message);
+            throw new ErrorException(Strings::sprintf($message, $messageParam));
         }
     }
 
