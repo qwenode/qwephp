@@ -11,7 +11,7 @@ namespace qwephp;
 /**
  * Class DateTimes
  * @package qwephp
- * @deprecated DO NOT USE
+ * @deprecated DO NOT USE,see DatetimeHelper
  */
 class DateTimes
 {

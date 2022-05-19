@@ -1,19 +1,8 @@
 <?php
-/*
- * @copyright  Copyright (c) 2021 www.qwephp.com, All rights reserved.
- * @link       https://github.com/qwenode/qwephp
- * @license    MIT
- */
 
 namespace qwephp\datetime;
 
-
-/**
- * Class FormatTime
- * @package qwephp\datetime
- * @deprecated please use DatetimeHelper
- */
-class FormatTime
+class DatetimeHelper
 {
     /**
      * @param Time $time
