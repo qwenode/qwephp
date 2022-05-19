@@ -2,7 +2,7 @@
 
 namespace qwephp\datetime;
 
-class DateTimeHelperHelper
+class DatetimeHelper
 {
     /**
      * @param TimeHelper $TimeHelper
