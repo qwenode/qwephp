@@ -2,23 +2,23 @@
 
 namespace qwephp\datetime;
 
-class DatetimeHelper
+class DateTimeHelperHelper
 {
     /**
-     * @param Time $time
-     * @return Time
+     * @param TimeHelper $TimeHelper
+     * @return TimeHelper
      */
-    public static function beginningOfTheDay(Time $time): Time
+    public static function beginningOfTheDay(TimeHelper $TimeHelper): TimeHelper
     {
-        return Time::fromString($time->toString('Y-m-d 00:00:00'));
+        return TimeHelper::fromString($TimeHelper->toString('Y-m-d 00:00:00'));
     }
 
     /**
-     * @param Time $time
-     * @return Time
+     * @param TimeHelper $TimeHelper
+     * @return TimeHelper
      */
-    public static function endOfTheDay(Time $time): Time
+    public static function endOfTheDay(TimeHelper $TimeHelper): TimeHelper
     {
-        return Time::fromString($time->toString('Y-m-d 23:59:59'));
+        return TimeHelper::fromString($TimeHelper->toString('Y-m-d 23:59:59'));
     }
 }
