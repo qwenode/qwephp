@@ -78,4 +78,20 @@ class Sanitize
         $filename = trim($filename, '._');
         return $filename;
     }
+
+    /**
+     * remove special char
+     * @param string $str
+     * @return string
+     */
+    public static function removeSpecialChar($str)
+    {
+        return str_replace(
+            [
+                '<', '>', '/', '\\', '.', '(', ')', '[', ']', '{', '}', '=', '-', '_', '*', '&', '^', '%', '$', '@', '!', '#',
+                '～', '，', '。', '！', '？', '"', "'", '“', '”', '【', '】', '『', '』', '：', '；', '《', '》', '’', '‘', '·', '~', ';',
+                '`', '|'
+            ],
+            '', $str);
+    }
 }
