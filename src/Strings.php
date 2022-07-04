@@ -53,6 +53,18 @@ class Strings
     }
 
     /**
+     * \r\n \r \n replace to \n
+     * @param string $str
+     * @return array|string
+     */
+    public static function nl2n(string $str): array|string
+    {
+        $str = str_replace(["\r\n", "\n\r", "\n\n", "\n\n\n"], "\n", $str);
+        $str = str_replace(["\r\n", "\n\r", "\n\n", "\n\n\n"], "\n", $str);
+        return str_replace(["\r\n", "\n\r", "\n\n", "\r"], "\n", $str);
+    }
+
+    /**
      * 调用方式: Strings::sprintf('abc{}haha',123); 返回: abc123haha
      * @param string $message
      * @param ...$params
