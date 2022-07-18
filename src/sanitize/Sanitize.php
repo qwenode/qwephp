@@ -25,11 +25,11 @@ class Sanitize
     /**
      * 移除非数字
      * @param string $str
-     * @return string
+     * @return int
      */
-    public static function int($str): string
+    public static function int($str): int
     {
-        return preg_replace('/[^0-9]/i', '', $str);
+        return (int)preg_replace('/[^0-9]/i', '', $str);
     }
 
     /**
@@ -46,17 +46,17 @@ class Sanitize
     /**
      * 移除非浮点数
      * @param string $str
-     * @return string
+     * @return float
      */
-    public static function float($str): string
+    public static function float($str): float
     {
         $r = preg_replace('/[^0-9.]/i', '', $str);
         $r = trim($r);
         $r = trim($r, '.');
         if (substr_count($r, '.') >= 2) {
-            return substr($r, 0, strrpos($r, '.'));
+            return (float)substr($r, 0, strrpos($r, '.'));
         }
-        return $r;
+        return (float)$r;
     }
 
     /**
