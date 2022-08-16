@@ -37,6 +37,32 @@ class Strings
     }
 
     /**
+     * @param string $str
+     * @return array
+     */
+    public static function extractUrls(string $str): array
+    {
+        preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $keyword, $match);
+        if (isset($match[0])) {
+            return $match[0];
+        }
+        return [];
+    }
+
+    /**
+     * @param string $str
+     * @return string
+     */
+    public static function extractFirstUrl(string $str): string
+    {
+        $extractUrls = self::extractUrls($str);
+        if (empty($extractUrls)) {
+            return '';
+        }
+        return array_shift($extractUrls);
+    }
+
+    /**
      *
      * @param string $str
      * @param array $findList
