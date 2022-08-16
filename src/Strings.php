@@ -20,6 +20,40 @@ class Strings
     }
 
     /**
+     * @param string $str
+     * @param string $find
+     * @param bool $reverseCompare 是否反向对比
+     * @return bool
+     */
+    public static function contain(string $str, string $find, bool $reverseCompare = false): bool
+    {
+        if (stripos($str, $find) !== false) {
+            return true;
+        }
+        if ($reverseCompare && stripos($find, $str) !== false) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @param string $str
+     * @param array $findList
+     * @param bool $reverseCompare
+     * @return bool
+     */
+    public static function containArray(string $str, array $findList, bool $reverseCompare = false): bool
+    {
+        foreach ($findList as $item) {
+            if (self::contain($str, $item, $reverseCompare)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * remove all whitespace
      * @param string $value
      * @return string
