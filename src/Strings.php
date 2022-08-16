@@ -42,7 +42,7 @@ class Strings
      */
     public static function extractUrls(string $str): array
     {
-        preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $keyword, $match);
+        preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $str, $match);
         if (isset($match[0])) {
             return $match[0];
         }
