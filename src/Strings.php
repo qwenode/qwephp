@@ -32,6 +32,66 @@ class Strings
     }
     
     /**
+     * @param string $str
+     * @param string $find
+     * @param bool $reverseCompare 是否反向对比
+     * @return bool
+     */
+    public static function contain(string $str, string $find, bool $reverseCompare = false): bool
+    {
+        if (stripos($str, $find) !== false) {
+            return true;
+        }
+        if ($reverseCompare && stripos($find, $str) !== false) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @param string $str
+     * @return array
+     */
+    public static function extractUrls(string $str): array
+    {
+        preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $str, $match);
+        if (isset($match[0])) {
+            return $match[0];
+        }
+        return [];
+    }
+
+    /**
+     * @param string $str
+     * @return string
+     */
+    public static function extractFirstUrl(string $str): string
+    {
+        $extractUrls = self::extractUrls($str);
+        if (empty($extractUrls)) {
+            return '';
+        }
+        return array_shift($extractUrls);
+    }
+
+    /**
+     *
+     * @param string $str
+     * @param array $findList
+     * @param bool $reverseCompare
+     * @return bool
+     */
+    public static function containArray(string $str, array $findList, bool $reverseCompare = false): bool
+    {
+        foreach ($findList as $item) {
+            if (self::contain($str, $item, $reverseCompare)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * remove all whitespace
      * @param string $value
      * @return string
@@ -62,6 +122,18 @@ class Strings
             return $str;
         }
         return array_shift($e);
+    }
+
+    /**
+     * \r\n \r \n replace to \n
+     * @param string $str
+     * @return array|string
+     */
+    public static function nl2n(string $str): array|string
+    {
+        $str = str_replace(["\r\n", "\n\r", "\n\n", "\n\n\n"], "\n", $str);
+        $str = str_replace(["\r\n", "\n\r", "\n\n", "\n\n\n"], "\n", $str);
+        return str_replace(["\r\n", "\n\r", "\n\n", "\r"], "\n", $str);
     }
 
     /**
