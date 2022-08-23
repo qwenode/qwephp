@@ -18,7 +18,19 @@ class Strings
     {
         return trim($value, $charlist);
     }
-
+    
+    /**
+     * @param string|null $value
+     * @return void
+     */
+    public static function stripTags($value): string
+    {
+        if ($value == null) {
+            return '';
+        }
+        return strip_tags($value);
+    }
+    
     /**
      * remove all whitespace
      * @param string $value
