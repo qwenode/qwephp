@@ -37,8 +37,11 @@ class Strings
      * @param bool $reverseCompare 是否反向对比
      * @return bool
      */
-    public static function contain(string $str, string $find, bool $reverseCompare = false): bool
+    public static function contain(?string $str, ?string $find, bool $reverseCompare = false): bool
     {
+        if ($str == null) {
+            return false;
+        }
         if (stripos($str, $find) !== false) {
             return true;
         }
@@ -73,16 +76,19 @@ class Strings
         }
         return array_shift($extractUrls);
     }
-
+    
     /**
      *
-     * @param string $str
+     * @param string|null $str
      * @param array $findList
      * @param bool $reverseCompare
      * @return bool
      */
-    public static function containArray(string $str, array $findList, bool $reverseCompare = false): bool
+    public static function containArray(?string $str, array $findList, bool $reverseCompare = false): bool
     {
+        if ($str == null) {
+            return false;
+        }
         foreach ($findList as $item) {
             if (self::contain($str, $item, $reverseCompare)) {
                 return true;
