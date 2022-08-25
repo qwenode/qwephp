@@ -19,6 +19,9 @@ class Sanitize
      */
     public static function alpha($str): string
     {
+        if ($str === null) {
+            return '';
+        }
         return trim(preg_replace('/[^a-z]/i', '', $str));
     }
 
@@ -29,6 +32,9 @@ class Sanitize
      */
     public static function int($str): int
     {
+        if ($str == null) {
+            return 0;
+        }
         return (int)preg_replace('/[^0-9]/i', '', $str);
     }
 
@@ -50,6 +56,9 @@ class Sanitize
      */
     public static function float($str): float
     {
+        if ($str == null) {
+            return 0;
+        }
         $r = preg_replace('/[^0-9.]/i', '', $str);
         $r = trim($r);
         $r = trim($r, '.');
