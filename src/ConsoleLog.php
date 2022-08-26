@@ -66,7 +66,8 @@ class ConsoleLog
         }
         $s = sprintf("[%s][%s]: %s\n", date('Y-m-d H:i:s'), $type, $message);
         echo $s;
-        if (defined(STDERR) && ($type == 'ERROR' || $type == 'WARNING')) {
+    
+        if (defined('STDERR') && ($type == 'ERROR' || $type == 'WARNING')) {
             fwrite(STDERR, $s);
         }
     }
