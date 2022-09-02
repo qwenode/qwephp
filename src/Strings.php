@@ -6,6 +6,8 @@
  */
 
 namespace qwephp;
+use qwephp\assert\Assertion;
+
 class Strings
 {
     /**
@@ -14,8 +16,11 @@ class Strings
      * @return string
      * @see trim()
      */
-    public static function trim(string $value, string $charlist = " \t\n\r\0\x0B"): string
+    public static function trim(?string $value, string $charlist = " \t\n\r\0\x0B"): string
     {
+        if (Assertion::isNull($value)) {
+            return $value;
+        }
         return trim($value, $charlist);
     }
     
@@ -50,26 +55,32 @@ class Strings
         }
         return false;
     }
-
+    
     /**
      * @param string $str
      * @return array
      */
-    public static function extractUrls(string $str): array
+    public static function extractUrls(?string $str): array
     {
+        if (Assertion::isNull($str)) {
+            return [];
+        }
         preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $str, $match);
         if (isset($match[0])) {
             return $match[0];
         }
         return [];
     }
-
+    
     /**
      * @param string $str
      * @return string
      */
-    public static function extractFirstUrl(string $str): string
+    public static function extractFirstUrl(?string $str): string
     {
+        if (Assertion::isNull($str)) {
+            return '';
+        }
         $extractUrls = self::extractUrls($str);
         if (empty($extractUrls)) {
             return '';
@@ -84,9 +95,9 @@ class Strings
      * @param bool $reverseCompare
      * @return bool
      */
-    public static function containArray(?string $str, array $findList, bool $reverseCompare = false): bool
+    public static function containArray(?string $str, ?array $findList, bool $reverseCompare = false): bool
     {
-        if ($str == null) {
+        if ($str == null || $findList == null) {
             return false;
         }
         foreach ($findList as $item) {
@@ -96,52 +107,67 @@ class Strings
         }
         return false;
     }
-
+    
     /**
      * remove all whitespace
      * @param string $value
      * @return string
      */
-    public static function stripSpace(string $value): string
+    public static function stripSpace(?string $value): string
     {
+        if (Assertion::isNull($value)) {
+            return '';
+        }
         return preg_replace('/\s+/', '', $value);
     }
-
-    public static function replaceMultipleSpaceToSingle(string $val): string
+    
+    public static function replaceMultipleSpaceToSingle(?string $value): string
     {
-        return preg_replace('/\s+/', ' ', $val);
+        if (Assertion::isNull($value)) {
+            return '';
+        }
+        return preg_replace('/\s+/', ' ', $value);
     }
-
-    public static function getLastElementBySplit(string $str, string $sep): string
+    
+    public static function getLastElementBySplit(?string $str, ?string $sep): string
     {
+        if (Assertion::isNull($str) || Assertion::isNull($sep)) {
+            return '';
+        }
         $e = explode($sep, $str);
         if (count($e) <= 0) {
             return $str;
         }
         return array_pop($e);
     }
-
-    public static function getFirstElementBySplit(string $str, string $sep): string
+    
+    public static function getFirstElementBySplit(?string $str, ?string $sep): string
     {
+        if (Assertion::isNull($str) || Assertion::isNull($sep)) {
+            return '';
+        }
         $e = explode($sep, $str);
         if (count($e) <= 0) {
             return $str;
         }
         return array_shift($e);
     }
-
+    
     /**
      * \r\n \r \n replace to \n
      * @param string $str
      * @return array|string
      */
-    public static function nl2n(string $str): array|string
+    public static function nl2n(?string $str): array|string
     {
+        if (Assertion::isNull($str)) {
+            return '';
+        }
         $str = str_replace(["\r\n", "\n\r", "\n\n", "\n\n\n"], "\n", $str);
         $str = str_replace(["\r\n", "\n\r", "\n\n", "\n\n\n"], "\n", $str);
         return str_replace(["\r\n", "\n\r", "\n\n", "\r"], "\n", $str);
     }
-
+    
     /**
      * 调用方式: Strings::sprintf('abc{}haha',123); 返回: abc123haha
      * @param string $message
@@ -152,7 +178,7 @@ class Strings
     {
         return self::sprintfWithArrayParams($message, $params);
     }
-
+    
     /**
      * 调用方式: Strings::sprintfWithArrayParams('abc{}haha',[123]); 返回: abc123haha
      * @param $message
@@ -161,6 +187,9 @@ class Strings
      */
     public static function sprintfWithArrayParams($message, array $params)
     {
+        if (Assertion::isNull($message)) {
+            return '';
+        }
         $explode = explode('{}', $message);
         $newMsg  = '';
         foreach ($explode as $k => $value) {
@@ -175,5 +204,5 @@ class Strings
         }
         return $newMsg;
     }
-
+    
 }
