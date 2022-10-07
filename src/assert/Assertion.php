@@ -18,20 +18,21 @@ class Assertion
      */
     public static function notNull($value): bool
     {
-        if (!isset($value)) {
-            return false;
-        }
-        if (empty($value)) {
-            return false;
-        }
-        if ($value == '') {
-            return false;
-        }
         if (is_array($value)) {
             if (count($value) == 0) {
                 return false;
             }
         }
+        if (!isset($value)) {
+            return false;
+        }
+        if (is_string($value) && strlen(trim($value))<=0) {
+            return false;
+        }
+        if (empty($value)) {
+            return false;
+        }
+        
         return true;
     }
     
