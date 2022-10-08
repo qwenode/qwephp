@@ -1,8 +1,11 @@
 <?php
 
 namespace qwephp;
-
-class StrHelper extends Strings
+/**
+ * @deprecated
+ * @see S
+ */
+class StrHelper extends S
 {
 
 }

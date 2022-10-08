@@ -1,7 +1,10 @@
 <?php
 
 namespace qwephp;
-
+/**
+ * @deprecated
+ * @see S
+ */
 class Masker
 {
     /**
