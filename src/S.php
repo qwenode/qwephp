@@ -8,7 +8,6 @@
 namespace qwephp;
 
 use JsonException;
-use qwephp\assert\Assertion;
 
 class S
 {

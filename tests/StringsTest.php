@@ -7,7 +7,7 @@
 
 namespace qwephp\tests;
 
-use qwephp\Strings;
+use qwephp\S as Strings;
 
 class StringsTest extends \Codeception\Test\Unit
 {
