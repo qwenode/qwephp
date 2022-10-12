@@ -1,13 +1,18 @@
 <?php
 
-namespace qwephp\assert;
-
+namespace qwephp;
 /**
- * @deprecated
- * @see \qwephp\Assertion
+ *
  */
 class Assertion
 {
+    public static function throw(bool $assertResult, string $message, ...$messageParams)
+    {
+        if ($assertResult===false) {
+            throw new AssertionFailedException(S::sprintf($message, $messageParams));
+        }
+    }
+    
     public static function isNull($value): bool
     {
         return !self::notNull($value);
@@ -27,10 +32,10 @@ class Assertion
         if (!isset($value)) {
             return false;
         }
-        if (is_string($value) && strlen(trim($value))<=0) {
+        if (is_string($value) && strlen(trim($value)) <= 0) {
             return false;
         }
-        if (empty($value)) {
+        if (empty($value) && $value!=='0') {
             return false;
         }
         

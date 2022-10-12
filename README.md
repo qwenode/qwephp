@@ -24,7 +24,7 @@ composer require qwenode/qwephp
 ## Tests
 
 ```shell script
-$ php vendor/bin/codecept run
+ php vendor/bin/codecept run
 ```
 
 ## Strings

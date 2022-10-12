@@ -2,8 +2,6 @@
 
 namespace qwephp;
 
-use qwephp\assert\Assertion;
-
 class Regex
 {
     //匹配UTF8中文
@@ -27,6 +25,7 @@ class Regex
         }
         return self::isMatch($str, static::PATTERN_UTF8_ZH_CN);
     }
+    
     /**
      * 是否大小写字母和数字
      * @param string $str
@@ -39,6 +38,7 @@ class Regex
         }
         return self::isMatch($str, static::PATTERN_ALPHA_NUMBER);
     }
+    
     /**
      * @param string $str
      * @param string $pattern

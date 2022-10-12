@@ -4,6 +4,9 @@ namespace qwephp;
 
 use ErrorException;
 
+/**
+ * @deprecated
+ */
 class ExceptionHelper
 {
     /**

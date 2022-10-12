@@ -6,7 +6,8 @@ use ErrorException;
 use qwephp\Strings;
 
 /**
- *
+ * @deprecated
+ * @see \qwephp\Assertion
  */
 class AssertionThrow
 {
@@ -20,6 +21,7 @@ class AssertionThrow
         if (!Assertion::notNull($value)) {
             throw new ErrorException(Strings::sprintf($message, $messageParam));
         }
+        
     }
 
     /**

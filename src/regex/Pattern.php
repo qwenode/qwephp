@@ -6,7 +6,12 @@
  */
 
 namespace qwephp\regex;
+use qwephp\Regex;
 
+/**
+ * @deprecated
+ * @see Regex
+ */
 class Pattern
 {
     //匹配UTF8中文
