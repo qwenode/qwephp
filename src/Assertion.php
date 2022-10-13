@@ -6,6 +6,14 @@ namespace qwephp;
  */
 class Assertion
 {
+    /**
+     * @deprecated
+     * @param bool $assertResult
+     * @param string $message
+     * @param ...$messageParams
+     * @return void
+     * @throws AssertionFailedException
+     */
     public static function throw(bool $assertResult, string $message, ...$messageParams)
     {
         if ($assertResult===false) {
@@ -13,6 +21,23 @@ class Assertion
         }
     }
     
+    /**
+     * @throws AssertionFailedException
+     */
+    public static function throwAtTrue(bool $assertResult, string $message, ...$messageParams)
+    {
+        self::throwAtFalse(!$assertResult,$message,$messageParams);
+    }
+    
+    /**
+     * @throws AssertionFailedException
+     */
+    public static function throwAtFalse(bool $assertResult, string $message, ...$messageParams)
+    {
+        if ($assertResult===false) {
+            throw new AssertionFailedException(S::sprintf($message, $messageParams));
+        }
+    }
     public static function isNull($value): bool
     {
         return !self::notNull($value);
