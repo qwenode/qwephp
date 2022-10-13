@@ -17,7 +17,7 @@ class Assertion
     public static function throw(bool $assertResult, string $message, ...$messageParams)
     {
         if ($assertResult===false) {
-            throw new AssertionFailedException(S::sprintf($message, $messageParams));
+            throw new AssertionFailedException(S::sprintfWithArrayParams($message, $messageParams));
         }
     }
     
@@ -35,7 +35,7 @@ class Assertion
     public static function throwAtFalse(bool $assertResult, string $message, ...$messageParams)
     {
         if ($assertResult===false) {
-            throw new AssertionFailedException(S::sprintf($message, $messageParams));
+            throw new AssertionFailedException(S::sprintfWithArrayParams($message, $messageParams));
         }
     }
     public static function isNull($value): bool
