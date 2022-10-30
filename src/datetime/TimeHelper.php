@@ -11,6 +11,7 @@ namespace qwephp\datetime;
 /**
  * Class Time
  * @package qwephp\datetime
+ * @deprecated
  */
 class TimeHelper
 {

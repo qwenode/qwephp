@@ -8,8 +8,13 @@
 namespace qwephp\sanitize;
 
 
+use qwephp\SS;
 use qwephp\Strings;
 
+/**
+ * @deprecated
+ * @see SS
+ */
 class Sanitize
 {
     /**

@@ -1,7 +1,9 @@
 <?php
 
 namespace qwephp\datetime;
-
+/**
+ * @deprecated
+ */
 class DatetimeHelper
 {
     /**
