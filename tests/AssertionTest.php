@@ -2,21 +2,32 @@
 
 namespace qwephp\tests;
 
-use phpDocumentor\Reflection\Types\True_;
-use qwephp\Assertion;
+use Codeception\Test\Unit;
+use qwephp\AA;
 
-class AssertionTest extends \Codeception\Test\Unit
+class AssertionTest extends Unit
 {
     public function testNull()
     {
-        $this->assertTrue(Assertion::isNull(null));
-        $this->assertTrue(Assertion::isNull(''));
-        $this->assertTrue(Assertion::isNull([]));
-        $this->assertTrue(Assertion::isNull(0));
-        $this->assertFalse(Assertion::isNull(1));
-        $this->assertFalse(Assertion::isNull('0'));
-        $this->assertFalse(Assertion::isNull([[]]));
-        $this->assertFalse(Assertion::isNull(true));
-        $this->assertTrue(Assertion::isNull(false));
+        $this->assertTrue(AA::isNull(null));
+        $this->assertTrue(AA::isNull(''));
+        $this->assertTrue(AA::isNull([]));
+        $this->assertTrue(AA::isNull(0));
+        $this->assertFalse(AA::isNull(1));
+        $this->assertFalse(AA::isNull('0'));
+        $this->assertFalse(AA::isNull([[]]));
+        $this->assertFalse(AA::isNull(true));
+        $this->assertTrue(AA::isNull(false));
+        
+    }
+    
+    public function testLengthBetween()
+    {
+        $this->assertTrue(AA::lenAreBetween('aa', 1, 2));
+        $this->assertTrue(AA::lenAreBetween('aa', 2, 1));
+        $this->assertTrue(AA::lenAreBetween('aa', 2, 3));
+        $this->assertTrue(AA::lenAreBetween('aa', 2, 2));
+        $this->assertFalse(AA::lenAreBetween('aa', 5, 3));
+        $this->assertFalse(AA::lenAreBetween('aa', 11, 21));
     }
 }

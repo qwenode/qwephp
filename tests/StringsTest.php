@@ -7,15 +7,16 @@
 
 namespace qwephp\tests;
 
-use qwephp\S as Strings;
+use Codeception\Test\Unit;
+use qwephp\SS as Strings;
 
-class StringsTest extends \Codeception\Test\Unit
+class StringsTest extends Unit
 {
-
+    
     protected function _before()
     {
     }
-
+    
     protected function _after()
     {
     }

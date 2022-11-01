@@ -8,15 +8,16 @@
 namespace qwephp\tests;
 
 
-use qwephp\sanitize\Sanitize;
+use Codeception\Test\Unit;
+use qwephp\SS;
 
-class SanitizeTest extends \Codeception\Test\Unit
+class SanitizeTest extends Unit
 {
-
+    
     protected function _before()
     {
     }
-
+    
     protected function _after()
     {
     }
@@ -24,15 +25,15 @@ class SanitizeTest extends \Codeception\Test\Unit
     // tests
     public function testSomeFeature()
     {
-        $this->assertEquals(Sanitize::alpha('abc123d'), 'abcd');
-        $this->assertEquals(Sanitize::alpha('abc123 d'), 'abcd');
-        $this->assertEquals(Sanitize::alpha(' abc12#3 d'), 'abcd');
-        $this->assertEquals(Sanitize::int(' abc12#3 d'), '123');
-        $this->assertEquals(Sanitize::int(' abc12#.3 d'), '123');
-        $this->assertEquals(Sanitize::float(' abc12#.3 d'), '12.3');
-        $this->assertEquals(Sanitize::float(' abc1.223#.3 d'), '1.223');
-        $this->assertEquals(Sanitize::firstInt(' abc1.223#.3 d'), '1');
-        $this->assertEquals(Sanitize::firstInt(' abc12.2223#.3 d'), '12');
+        $this->assertEquals(SS::toAlpha('abc123d'), 'abcd');
+        $this->assertEquals(SS::toAlpha('abc123 d'), 'abcd');
+        $this->assertEquals(SS::toAlpha(' abc12#3 d'), 'abcd');
+        $this->assertEquals(SS::toInt(' abc12#3 d'), '123');
+        $this->assertEquals(SS::toInt(' abc12#.3 d'), '123');
+        $this->assertEquals(SS::toFloat(' abc12#.3 d'), '12.3');
+        $this->assertEquals(SS::toFloat(' abc1.223#.3 d'), '1.223');
+        $this->assertEquals(SS::extractFirstInt(' abc1.223#.3 d'), '1');
+        $this->assertEquals(SS::extractFirstInt(' abc12.2223#.3 d'), '12');
     }
 
 }

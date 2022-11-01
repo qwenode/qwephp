@@ -2,7 +2,9 @@
 
 namespace qwephp;
 
-
+/**
+ * number helper
+ */
 class NN
 {
     const MAX_INT = 2147483647;

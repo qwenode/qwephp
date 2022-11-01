@@ -60,11 +60,55 @@ class AA
         if (is_string($value) && strlen(trim($value)) <= 0) {
             return false;
         }
-        if (empty($value) && $value!=='0') {
+        if (empty($value) && $value !== '0') {
             return false;
         }
-        
+    
         return true;
+    }
+    
+    /**
+     * @param string $str
+     * @param int $maxLength
+     * @return bool
+     */
+    public static function isTooLong($str, int $maxLength)
+    {
+        if (SS::length($str) > $maxLength) {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * @param string $str
+     * @param int $minLength
+     * @return bool
+     */
+    public static function isTooShort($str, int $minLength)
+    {
+        if (SS::length($str) < $minLength) {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * 长度是否介于两个数之间
+     * @param string $str
+     * @param int $left
+     * @param int $right
+     * @return bool
+     */
+    public static function lenAreBetween($str, int $left, int $right)
+    {
+        $len = SS::length($str);
+        if ($left > $right) {
+            $mid   = $left;
+            $left  = $right;
+            $right = $mid;
+        }
+        return ($len >= $left && $len <= $right);
     }
     
     /**

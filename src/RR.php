@@ -1,7 +1,9 @@
 <?php
 
 namespace qwephp;
-
+/**
+ * regex helper
+ */
 class RR
 {
     //匹配UTF8中文
@@ -20,7 +22,7 @@ class RR
      */
     public static function isChineseText($str)
     {
-        if (Assertion::isNull($str)) {
+        if (AA::isNull($str)) {
             return false;
         }
         return self::isMatch($str, static::PATTERN_UTF8_ZH_CN);
@@ -33,7 +35,7 @@ class RR
      */
     public static function isAlphaNumber($str)
     {
-        if (Assertion::isNull($str)) {
+        if (AA::isNull($str)) {
             return false;
         }
         return self::isMatch($str, static::PATTERN_ALPHA_NUMBER);

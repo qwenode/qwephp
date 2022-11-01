@@ -9,6 +9,9 @@ namespace qwephp;
 
 use JsonException;
 
+/**
+ * string helper
+ */
 class SS
 {
     /**
