@@ -15,6 +15,14 @@ class NN
     const MIN_BIGINT = -9223372036854775808;
     const ZERO = 0;
     
+    /**
+     * @param int|float $i
+     * @param int|float $min
+     * @param int|float $max
+     * @return bool
+     * @deprecated
+     * @see AA::numberAreBetween()
+     */
     public static function between(int|float $i, int|float $min, int|float $max): bool
     {
         return $i >= $min && $i <= $max;

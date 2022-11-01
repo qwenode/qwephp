@@ -100,7 +100,7 @@ class AA
      * @param int $right
      * @return bool
      */
-    public static function lenAreBetween($str, int $left, int $right)
+    public static function lenAreBetween($str, int $left, int $right): bool
     {
         $len = SS::length($str);
         if ($left > $right) {
@@ -109,6 +109,23 @@ class AA
             $right = $mid;
         }
         return ($len >= $left && $len <= $right);
+    }
+    
+    /**
+     * 数字是否介于连个数之间
+     * @param int|float $i
+     * @param int|float $min
+     * @param int|float $max
+     * @return bool
+     */
+    public static function numberAreBetween(int|float $i, int|float $min, int|float $max): bool
+    {
+        if ($min > $max) {
+            $mid = $min;
+            $min = $max;
+            $max = $mid;
+        }
+        return $i >= $min && $i <= $max;
     }
     
     /**
