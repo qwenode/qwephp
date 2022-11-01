@@ -137,6 +137,21 @@ class SS
     }
     
     /**
+     * 返回数据中第一个不为空的数据
+     * @param array $data
+     * @return mixed|string|null
+     */
+    public static function firstOne(array $data)
+    {
+        foreach ($data as $datum) {
+            if (AA::notNull($datum)) {
+                return $datum;
+            }
+        }
+        return null;
+    }
+    
+    /**
      * Limit the number of characters in a string.
      *
      * @param string $value
