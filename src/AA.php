@@ -17,7 +17,7 @@ class AA
     public static function throw(bool $assertResult, string $message, ...$messageParams)
     {
         if ($assertResult===false) {
-            throw new AssertionFailedException(S::sprintfWithArrayParams($message, $messageParams));
+            throw new AssertionFailedException(SS::sprintfWithArrayParams($message, $messageParams));
         }
     }
     
@@ -34,10 +34,18 @@ class AA
      */
     public static function throwAtFalse(bool $assertResult, string $message, ...$messageParams)
     {
-        if ($assertResult===false) {
-            throw new AssertionFailedException(S::sprintfWithArrayParams($message, $messageParams));
+        if ($assertResult === false) {
+            throw new AssertionFailedException(SS::sprintfWithArrayParams($message, $messageParams));
         }
     }
+    
+    public static function throwAtNull($assertResult, string $message, ...$messageParams)
+    {
+        if (AA::isNull($assertResult)) {
+            throw new AssertionFailedException(SS::sprintfWithArrayParams($message, $messageParams));
+        }
+    }
+    
     public static function isNull($value): bool
     {
         return !self::notNull($value);
@@ -126,40 +134,5 @@ class AA
             $max = $mid;
         }
         return $i >= $min && $i <= $max;
-    }
-    
-    /**
-     * 确保字符串包含一定数量的字符
-     * @param string $value
-     * @param int $min
-     * @return bool
-     */
-    public static function minLength(string $value, int $min): bool
-    {
-        return self::strlen($value) >= $min;
-    }
-    
-    /**
-     * 确保字符串不超过限定长度
-     * @param string $value
-     * @param int $max
-     * @return bool
-     */
-    public static function maxLength(string $value, int $max): bool
-    {
-        return self::strlen($value) <= $max;
-    }
-    
-    protected static function strlen($value): int
-    {
-        if (!function_exists('mb_detect_encoding')) {
-            return strlen($value);
-        }
-        
-        if (false === $encoding = mb_detect_encoding($value)) {
-            return strlen($value);
-        }
-        
-        return mb_strlen($value, $encoding);
     }
 }
