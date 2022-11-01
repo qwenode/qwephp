@@ -6,22 +6,12 @@ namespace qwephp;
  */
 class AA
 {
+    
     /**
-     * @deprecated
      * @param bool $assertResult
      * @param string $message
      * @param ...$messageParams
      * @return void
-     * @throws AssertionFailedException
-     */
-    public static function throw(bool $assertResult, string $message, ...$messageParams)
-    {
-        if ($assertResult===false) {
-            throw new AssertionFailedException(SS::sprintfWithArrayParams($message, $messageParams));
-        }
-    }
-    
-    /**
      * @throws AssertionFailedException
      */
     public static function throwAtTrue(bool $assertResult, string $message, ...$messageParams)
@@ -30,6 +20,10 @@ class AA
     }
     
     /**
+     * @param bool $assertResult
+     * @param string $message
+     * @param ...$messageParams
+     * @return void
      * @throws AssertionFailedException
      */
     public static function throwAtFalse(bool $assertResult, string $message, ...$messageParams)
@@ -39,9 +33,30 @@ class AA
         }
     }
     
+    /**
+     * @param $assertResult
+     * @param string $message
+     * @param ...$messageParams
+     * @return void
+     * @throws AssertionFailedException
+     */
     public static function throwAtNull($assertResult, string $message, ...$messageParams)
     {
         if (AA::isNull($assertResult)) {
+            throw new AssertionFailedException(SS::sprintfWithArrayParams($message, $messageParams));
+        }
+    }
+    
+    /**
+     * @param $assertResult
+     * @param string $message
+     * @param ...$messageParams
+     * @return void
+     * @throws AssertionFailedException
+     */
+    public static function throwAtNotNull($assertResult, string $message, ...$messageParams)
+    {
+        if (AA::notNull($assertResult)) {
             throw new AssertionFailedException(SS::sprintfWithArrayParams($message, $messageParams));
         }
     }
