@@ -152,6 +152,36 @@ class SS
     }
     
     /**
+     * @param string $str
+     * @param string $needle
+     * @param bool $caseSensitive
+     * @return bool
+     */
+    public static function startsWith($str, $needle, bool $caseSensitive = false)
+    {
+        if ($caseSensitive === false) {
+            $str    = strtoupper($str);
+            $needle = strtoupper($needle);
+        }
+        return str_starts_with($str, $needle);
+    }
+    
+    /**
+     * @param string $str
+     * @param string $needle
+     * @param bool $caseSensitive
+     * @return bool
+     */
+    public static function endsWith($str, $needle, bool $caseSensitive = false)
+    {
+        if ($caseSensitive === false) {
+            $str    = strtoupper($str);
+            $needle = strtoupper($needle);
+        }
+        return str_ends_with($str, $needle);
+    }
+    
+    /**
      * Limit the number of characters in a string.
      *
      * @param string $value
@@ -327,6 +357,7 @@ class SS
         }
         return $newMsg;
     }
+    
     /**
      * 移除非字母
      * @param string $str
@@ -414,7 +445,7 @@ class SS
             [
                 '<', '>', '/', '\\', '.', '(', ')', '[', ']', '{', '}', '=', '-', '_', '*', '&', '^', '%', '$', '@', '!', '#',
                 '～', '，', '。', '！', '？', '"', "'", '“', '”', '【', '】', '『', '』', '：', '；', '《', '》', '’', '‘', '·', '~', ';',
-                '`', '|'
+                '`', '|',
             ],
             '', $str);
     }
