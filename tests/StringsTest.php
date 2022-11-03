@@ -8,9 +8,9 @@
 namespace qwephp\tests;
 
 use Codeception\Test\Unit;
-use qwephp\SS as Strings;
+use qwephp\SS;
 
-class StringsTest extends Unit
+class SSTest extends Unit
 {
     
     protected function _before()
@@ -20,25 +20,38 @@ class StringsTest extends Unit
     protected function _after()
     {
     }
-
+    
     // tests
     public function testSomeFeature()
     {
-        $this->assertEquals(Strings::trim('a '), 'a');
-        $this->assertEquals(Strings::trim("a \n\r\t"), 'a');
-        $this->assertEquals(Strings::trim(".a.,", ',.'), 'a');
-        $this->assertEquals(Strings::stripSpace("a b c d "), 'abcd');
+        $this->assertEquals(SS::trim('a '), 'a');
+        $this->assertEquals(SS::trim("a \n\r\t"), 'a');
+        $this->assertEquals(SS::trim(".a.,", ',.'), 'a');
+        $this->assertEquals(SS::stripSpace("a b c d "), 'abcd');
     }
-
+    
+    public function testTrueAndFalse()
+    {
+        $this->assertTrue(SS::toBoolean('1'));
+        $this->assertTrue(SS::toBoolean('yes'));
+        $this->assertTrue(SS::toBoolean('ok'));
+        $this->assertTrue(SS::toBoolean(1));
+        $this->assertTrue(SS::toBoolean(true));
+        $this->assertFalse(SS::toBoolean('0'));
+        $this->assertFalse(SS::toBoolean('no'));
+        $this->assertFalse(SS::toBoolean('false'));
+        $this->assertFalse(SS::toBoolean(false));
+    }
+    
     public function testReplaceMultipleSpaceToSingle()
     {
-        $this->assertEquals(Strings::replaceMultipleSpaceToSingle('a  b'), 'a b');
-        $this->assertEquals(Strings::replaceMultipleSpaceToSingle('a    b   c'), 'a b c');
+        $this->assertEquals(SS::replaceMultipleSpaceToSingle('a  b'), 'a b');
+        $this->assertEquals(SS::replaceMultipleSpaceToSingle('a    b   c'), 'a b c');
     }
-
+    
     public function testGetLastElementBySplit()
     {
-        $this->assertEquals(Strings::getLastElementBySplit("awefwe/bbb", "/"), "bbb");
-        $this->assertEquals(Strings::getFirstElementBySplit("awefwe/awefwe1/bbb/wegew", "/"), "awefwe");
+        $this->assertEquals(SS::getLastElementBySplit("awefwe/bbb", "/"), "bbb");
+        $this->assertEquals(SS::getFirstElementBySplit("awefwe/awefwe1/bbb/wegew", "/"), "awefwe");
     }
 }

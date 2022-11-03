@@ -372,6 +372,22 @@ class SS
     }
     
     /**
+     * @param string|null $str
+     * @return bool
+     */
+    public static function toBoolean(?string $str)
+    {
+        if (SS::containArray($str, ['1', 'true', 'yes', 'ok', 'success'])) {
+            return true;
+        }
+        
+        if (SS::containArray($str, ['0', 'no', 'false', 'fail'])) {
+            return false;
+        }
+        return (boolean)intval($str);
+    }
+    
+    /**
      * 移除非数字
      * @param string $str
      * @return int
