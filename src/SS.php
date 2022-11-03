@@ -141,9 +141,9 @@ class SS
      * @param array $data
      * @return mixed|string|null
      */
-    public static function firstOne(array $data)
+    public static function firstOne(?string ...$fields)
     {
-        foreach ($data as $datum) {
+        foreach ($fields as $datum) {
             if (AA::notNull($datum)) {
                 return $datum;
             }
