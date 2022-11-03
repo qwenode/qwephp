@@ -1,6 +1,7 @@
 <?php
 
 namespace qwephp;
+
 /**
  *
  */
@@ -64,6 +65,16 @@ class AA
     public static function isNull($value): bool
     {
         return !self::notNull($value);
+    }
+    
+    public static function anyAreNull(...$fields): bool
+    {
+        foreach ($fields as $field) {
+            if (self::isNull($field)) {
+                return true;
+            }
+        }
+        return false;
     }
     
     /**
