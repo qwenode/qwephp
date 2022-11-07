@@ -377,14 +377,10 @@ class SS
      */
     public static function toBoolean(?string $str)
     {
-        if (SS::containArray($str, ['1', 'true', 'yes', 'ok', 'success'])) {
+        if (SS::containArray($str, ['yes', 'ok', '1', 'true', 'sure', 'agree', 'success'])) {
             return true;
         }
-        
-        if (SS::containArray($str, ['0', 'no', 'false', 'fail'])) {
-            return false;
-        }
-        return (boolean)intval($str);
+        return false;
     }
     
     /**
