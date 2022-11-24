@@ -76,6 +76,11 @@ class SS
         return [];
     }
     
+    public static function mergePath($prefix, $path)
+    {
+        return rtrim($prefix, '/') . '/' . ltrim($path, '/');
+    }
+    
     /**
      * @param string $str
      * @return string
