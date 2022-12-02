@@ -82,6 +82,34 @@ class SS
     }
     
     /**
+     * @param $str string
+     * @param $removeString string
+     * @param bool $caseSensitive
+     * @return string
+     */
+    public static function removeLeft($str, $removeString, bool $caseSensitive = false)
+    {
+        if (!self::startsWith($str, $removeString, $caseSensitive)) {
+            return $str;
+        }
+        return mb_substr($str, mb_strlen($removeString));
+    }
+    
+    /**
+     * @param $str string
+     * @param $removeString string
+     * @param bool $caseSensitive
+     * @return mixed|string
+     */
+    public static function removeRight($str, $removeString, bool $caseSensitive = false)
+    {
+        if (!self::endsWith($str, $removeString, $caseSensitive)) {
+            return $str;
+        }
+        return mb_substr($str, 0, -mb_strlen($removeString));
+    }
+    
+    /**
      * @param string $str
      * @return string
      */

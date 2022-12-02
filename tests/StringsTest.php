@@ -54,4 +54,16 @@ class SSTest extends Unit
         $this->assertEquals(SS::getLastElementBySplit("awefwe/bbb", "/"), "bbb");
         $this->assertEquals(SS::getFirstElementBySplit("awefwe/awefwe1/bbb/wegew", "/"), "awefwe");
     }
+    
+    public function testRemoveString()
+    {
+        $this->assertEquals(SS::removeLeft('pre_xxxx', 'pre_'), 'xxxx');
+        $this->assertEquals(SS::removeLeft('pre_pre_xxxx', 'pre_'), 'pre_xxxx');
+        $this->assertEquals(SS::removeLeft('1pre_pre_xxxx', 'pre_'), '1pre_pre_xxxx');
+        $this->assertEquals(SS::removeRight('1pre_pre_xxxx', '_xxxx'), '1pre_pre');
+        $this->assertEquals(SS::removeRight('_xxxx_pre_pre', '_pre'), '_xxxx_pre');
+        $this->assertEquals(SS::removeRight('_xxxx_pre', '_pre'), '_xxxx');
+        $this->assertEquals(SS::removeRight('_xxxx_pre', '_pre'), '_xxxx');
+        $this->assertEquals(SS::removeRight('_pre_xxxx', '_pre'), '_pre_xxxx');
+    }
 }
