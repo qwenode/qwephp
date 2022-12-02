@@ -7,6 +7,15 @@ namespace qwephp;
  */
 class AA
 {
+    public static function tempDuplicate($key)
+    {
+        static $list = [];
+        if (key_exists($key, $list)) {
+            return true;
+        }
+        $list[$key] = true;
+        return false;
+    }
     
     /**
      * @param bool $assertResult
@@ -17,7 +26,7 @@ class AA
      */
     public static function throwAtTrue(bool $assertResult, string $message, ...$messageParams)
     {
-        self::throwAtFalse(!$assertResult,$message,$messageParams);
+        self::throwAtFalse(!$assertResult, $message, $messageParams);
     }
     
     /**

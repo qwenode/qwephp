@@ -35,5 +35,9 @@ class AssertionTest extends Unit
         $this->assertFalse(AA::numberAreBetween(3, 2, 1));
     }
     
-    
+    public function testTempDuplicate()
+    {
+        $this->assertFalse(AA::tempDuplicate('test'));
+        $this->assertTrue(AA::tempDuplicate('test'));
+    }
 }
