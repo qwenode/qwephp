@@ -89,6 +89,9 @@ class SS
      */
     public static function removeLeft($str, $removeString, bool $caseSensitive = false)
     {
+        if (AA::isNull($removeString)) {
+            return $str;
+        }
         if (!self::startsWith($str, $removeString, $caseSensitive)) {
             return $str;
         }
@@ -103,6 +106,9 @@ class SS
      */
     public static function removeRight($str, $removeString, bool $caseSensitive = false)
     {
+        if (AA::isNull($removeString)) {
+            return $str;
+        }
         if (!self::endsWith($str, $removeString, $caseSensitive)) {
             return $str;
         }
