@@ -10,7 +10,7 @@ namespace qwephp\tests;
 use Codeception\Test\Unit;
 use qwephp\SS;
 
-class SSTest extends Unit
+class StringsTest extends Unit
 {
     
     protected function _before()
