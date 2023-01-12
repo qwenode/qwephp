@@ -27,4 +27,14 @@ class NN
     {
         return $i >= $min && $i <= $max;
     }
+    
+    /**
+     * @param $number
+     * @param int $decimals
+     * @return float
+     */
+    public static function round($number,int $decimals)
+    {
+        return floatval(sprintf('%0.'.$decimals.'f',$number));
+    }
 }
