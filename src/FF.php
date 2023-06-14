@@ -14,7 +14,7 @@ class FF
      * @return bool
      * @throws \ErrorException
      */
-    public static function createDirectory(string $path,int $mode = 0775,bool $recursive = true)
+    public static function createDirectory(string $path, int $mode = 0775, bool $recursive = true)
     {
         if (is_dir($path)) {
             return true;
@@ -26,5 +26,23 @@ class FF
             throw new \ErrorException("Failed to create directory \"$path\": ");
         }
         return true;
+    }
+    
+    /**
+     * joins any number of path elements into a single path
+     * @param ...$elem
+     * @return string
+     */
+    public static function join(...$elem): string
+    {
+        foreach ($elem as $k => $path) {
+            $path     = str_replace('\\', DIRECTORY_SEPARATOR, $path);
+            $elem[$k] = str_replace('/', DIRECTORY_SEPARATOR, $path);
+        }
+        $full = '';
+        foreach ($elem as $path) {
+            $full .= rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+        }
+        return rtrim($path, DIRECTORY_SEPARATOR);
     }
 }
