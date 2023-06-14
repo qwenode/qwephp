@@ -43,6 +43,6 @@ class FF
         foreach ($elem as $path) {
             $full .= rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
         }
-        return rtrim($path, DIRECTORY_SEPARATOR);
+        return rtrim($full, DIRECTORY_SEPARATOR);
     }
 }
