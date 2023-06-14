@@ -41,6 +41,9 @@ class FF
         }
         $full = '';
         foreach ($elem as $path) {
+            if (AA::notNull($full)) {
+                $path = ltrim($path, DIRECTORY_SEPARATOR);
+            }
             $full .= rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
         }
         return rtrim($full, DIRECTORY_SEPARATOR);
