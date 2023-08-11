@@ -92,6 +92,9 @@ class AA
      */
     public static function notNull($value): bool
     {
+        if ($value === null) {
+            return false;
+        }
         if (is_array($value)) {
             if (count($value) == 0) {
                 return false;
@@ -103,6 +106,7 @@ class AA
         if (is_string($value) && strlen(trim($value)) <= 0) {
             return false;
         }
+
         if (empty($value) && $value !== '0') {
             return false;
         }
