@@ -505,4 +505,19 @@ class SS
             ],
             '', $str);
     }
+
+    /**
+     * url to host
+     * @param $url
+     *
+     * @return mixed|string
+     */
+    public static function toHostname($url): string
+    {
+        $parse_url = parse_url($url);
+        if (key_exists('host', $parse_url)) {
+            return $parse_url['host'];
+        }
+        return '';
+    }
 }
