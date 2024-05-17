@@ -327,6 +327,19 @@ class SS
         }
         return array_shift($e);
     }
+
+    public static function getSecondElementBySplit(?string $str, ?string $sep):string
+    {
+        if (AA::isNull($str) || AA::isNull($sep)) {
+            return '';
+        }
+        $e = explode($sep, $str);
+        if (count($e) <2) {
+            return $str;
+        }
+
+        return $e[1];
+    }
     
     /**
      * \r\n \r \n replace to \n
